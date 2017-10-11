@@ -27,9 +27,13 @@ This is an example of a simple application built with the Angular 4 framework an
 The application is a simple contact list application for viewing a list of contacts. Here are the key features illustrated in the sample:
 
 • The three different views (list, details, and about) are separate HTML files loaded as partial pages using the [Angular router](https://angular.io/guide/router), configured in app.module.ts.
+
 • [Angular Http](https://angular.io/api/http/Http) is used to load the default JSON data file, contacts.json.
+
 • There are two simple Angular controllers used, for the list view and the details view.
+
 • There are three local JavaScript files used, and when running in Script Portlet they are combined into a single resource by WebSphere Portal's resource aggregation feature (available in version 8.5, CF03 or later). See the comment at the top of index.html for how this is enabled.
+
 • The [Bootstrap 3](https://getbootstrap.com/docs/3.3/) library is used for styling of the application UI
 
 ## Configuration
