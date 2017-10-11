@@ -26,15 +26,11 @@ This is an example of a simple application built with the Angular 4 framework an
 
 The application is a simple contact list application for viewing a list of contacts. Here are the key features illustrated in the sample:
 
-• The three different views (list, details, and about) are separate HTML files loaded as partial pages using the [Angular router](https://angular.io/guide/router), configured in app.module.ts.
-
-• [Angular Http](https://angular.io/api/http/Http) is used to load the default JSON data file, contacts.json.
-
-• There are two simple Angular controllers used, for the list view and the details view.
-
-• There are three local JavaScript files used, and when running in Script Portlet they are combined into a single resource by WebSphere Portal's resource aggregation feature (available in version 8.5, CF03 or later). See the comment at the top of index.html for how this is enabled.
-
-• The [Bootstrap 3](https://getbootstrap.com/docs/3.3/) library is used for styling of the application UI
+* The three different views (list, details, and about) are separate HTML files loaded as component pages using the [Angular router](https://angular.io/guide/router), configured in app.module.ts.
+* [Angular Http](https://angular.io/api/http/Http) is used to load the default JSON data file, contacts.json.
+* There are three simple Angular components used, for the list view, the details view and the about page.
+* There are a few separate JavaScript files used, and when running in Script Portlet they are combined into a single resource by WebSphere Portal's resource aggregation feature (available in version 8.5, CF03 or later). See the comment at the top of index.html for how this is enabled.
+* The [Bootstrap 3](https://getbootstrap.com/docs/3.3/) library is used for styling of the application UI
 
 ## Configuration
 
@@ -42,6 +38,21 @@ There are a few steps that need to be taken to configure WebSphere Portal and Sc
 
 1. Set both `dynamic.parameter.tag.enabled` and `renderingplugin.shortform.enabled` in the `WCM WCMConfigService` service to `false` in the WebSphere® Integrated Solutions Console, as this feature can interfere with Angular code that uses square brackets. [more information](https://www.ibm.com/support/knowledgecenter/en/SSDK36_8.5.0/wcm/wcm_tags_behavior.html)
 2. The Angular router requires the `HTML` `base` tag to be present. Do this by setting the theme parameter `com.ibm.portal.theme.hasBaseURL` to `true`. [more information](https://www.ibm.com/support/knowledgecenter/en/SSYJ99_8.5.0/wcm/prevent_friendly_url_redirects.html)
+
+## Development
+
+1. The following Angular CLI commands were used as setup:
+```
+ng new SampleAngularScriptApp
+cd SampleAngularScriptApp
+ng g component contacts/contact-list
+ng g component contacts/contact-details
+ng g component about
+ng g service contacts/contacts
+```
+
+2. The following code changes were implemented to ensure the application works within the IBM Script Portlet:
+   * Add the `data-scriptportlet-combine-urls="true"` parameter to the `html` tag in *src/index.html*
 
 ## Deployment
 
@@ -53,14 +64,6 @@ After configuration, use the [Script Portlet command line application](https://w
 ## Angular CLI information
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.5.
-
-### Initialization
-
-The following commands were used to setup this sample application:
-
-```
-ng new SampleAngularScriptApp
-```
 
 ### Development server
 
