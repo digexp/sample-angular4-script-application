@@ -49,7 +49,7 @@ There are a few steps that need to be taken to configure WebSphere Portal and Sc
 After configuration, use the [Script Portlet command line application](https://www.ibm.com/support/knowledgecenter/en/SSHRKX_8.5.0/script/script-portlet/cmd_line_push_ovr.html) to push the sample to WebSphere Portal:
 
 1. Run `ng build -prod` to build, package and compress the application into the `/dist` folder
-2. From the `/dist` folder, run `sp push`
+2. From the `/dist` folder, run `sp push -wcmContentName SampleAngularScriptApp`
 
 ## Angular CLI information
 
