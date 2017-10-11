@@ -45,6 +45,14 @@ There are a few steps that need to be taken to configure WebSphere Portal and Sc
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.5.
 
+### Initialization
+
+The following commands were used to setup this sample application:
+
+```
+ng new SampleAngularScriptApp
+```
+
 ### Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
