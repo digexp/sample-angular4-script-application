@@ -33,6 +33,14 @@ The application is a simple contact list application for viewing a list of conta
 
 • The [Bootstrap 3](https://getbootstrap.com/docs/3.3/) library is used for styling of the application UI
 
+## Configuration
+
+There are a few steps that need to be taken to configure WebSphere Portal and Script Portlet to run the Angular application. These steps only need to be done once.
+
+1. Set both `dynamic.parameter.tag.enabled` and `renderingplugin.shortform.enabled` in the `WCM WCMConfigService` service to `false` in the WebSphere® Integrated Solutions Console. [more information](https://www.ibm.com/support/knowledgecenter/en/SSDK36_8.5.0/wcm/wcm_tags_behavior.html)
+
+2. Set the theme parameter `com.ibm.portal.theme.hasBaseURL` to `true`. [more information](https://www.ibm.com/support/knowledgecenter/en/SSYJ99_8.5.0/wcm/prevent_friendly_url_redirects.html)
+
 ## Angular CLI information
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.5.
