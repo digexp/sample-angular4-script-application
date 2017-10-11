@@ -6,7 +6,7 @@ This sample illustrates building an Angular CLI application and deploying it as 
 
 [Angular CLI](https://cli.angular.io/) is a command line tool that allowed developers to quickly get their applications up and running. This sample showcases a simple contact list written in [Angular 4](https://angular.io/).
 
-With the IBM Script Portlet, you can import any JavaScript framework application as a JSR-286 portlet and host it on WebSphere Portal. Since the sample application is platform agnostic, you can run the same code as a portlet or mobile app, allowing reuse over multiple devices and platforms.
+With the IBM Script Portlet, any JavaScript framework application can be imported as a JSR-286 portlet and host it on WebSphere Portal. Since the sample application is platform agnostic, the same code can be run as a portlet or mobile app, allowing reuse over multiple devices and platforms.
 
 ## Target audience
 
@@ -14,8 +14,11 @@ This article is intended for developers and architects, with an existing backgro
 
 ## Requirements
 
+- WebSphere Portal version 8.0.0.1 or higher
+- Java 1.6 or newer
 - [node](https://nodejs.org/en/) version 6.x
-- [Script Portlet](https://www.ibm.com/support/knowledgecenter/en/SSHRKX_8.5.0/script/script-portlet/prerequisites.html) version 1.3
+- [IBM Script Portlet](https://www.ibm.com/support/knowledgecenter/en/SSHRKX_8.5.0/script/script-portlet/prerequisites.html) version 1.3
+- [Command line push application for IBM Script Portlet](https://www.ibm.com/support/knowledgecenter/en/SSHRKX_8.5.0/script/script-portlet/cmd_line_push.html)
 
 ## Sample application overview
 
@@ -40,6 +43,13 @@ There are a few steps that need to be taken to configure WebSphere Portal and Sc
 1. Set both `dynamic.parameter.tag.enabled` and `renderingplugin.shortform.enabled` in the `WCM WCMConfigService` service to `false` in the WebSphere® Integrated Solutions Console. [more information](https://www.ibm.com/support/knowledgecenter/en/SSDK36_8.5.0/wcm/wcm_tags_behavior.html)
 
 2. Set the theme parameter `com.ibm.portal.theme.hasBaseURL` to `true`. [more information](https://www.ibm.com/support/knowledgecenter/en/SSYJ99_8.5.0/wcm/prevent_friendly_url_redirects.html)
+
+## Deployment
+
+After configuration, use the [Script Portlet command line application](https://www.ibm.com/support/knowledgecenter/en/SSHRKX_8.5.0/script/script-portlet/cmd_line_push_ovr.html) to push the sample to WebSphere Portal:
+
+1. Run `ng build -prod` to build, package and compress the application into the `/dist` folder
+2. From the `/dist` folder, run `sp push`
 
 ## Angular CLI information
 
