@@ -40,6 +40,7 @@ There are a few steps that need to be taken to configure WebSphere Portal and Sc
 
 1. Set both `dynamic.parameter.tag.enabled` and `renderingplugin.shortform.enabled` in the `WCM WCMConfigService` service to `false` in the WebSphere® Integrated Solutions Console, as this feature can interfere with Angular code that uses square brackets. [more information](https://www.ibm.com/support/knowledgecenter/en/SSDK36_8.5.0/wcm/wcm_tags_behavior.html)
 2. The Angular router requires the `HTML` `base` tag to be present. Do this by setting the theme parameter `com.ibm.portal.theme.hasBaseURL` to `true`. [more information](https://www.ibm.com/support/knowledgecenter/en/SSYJ99_8.5.0/wcm/prevent_friendly_url_redirects.html)
+3. To support Angular routing, configure portal to use [stateless URLs](https://www.ibm.com/support/knowledgecenter/en/SSYJ99_8.5.0/config/cfg_intr_seo.html) in the [Configuration Wizard](https://www.ibm.com/support/knowledgecenter/en/SSHRKX_8.5.0/mp/config/cw_run.html). Do this under **URL Settings** by setting the *"Do you want your portal URL to contain navigational state information"* option to **No**.
 
 ### Development
 
