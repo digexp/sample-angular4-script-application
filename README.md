@@ -8,11 +8,11 @@ This sample illustrates building an Angular CLI application and deploying it as 
 
 With the IBM Script Portlet, any JavaScript framework application can be imported as a JSR-286 portlet and host it on WebSphere Portal. Since the sample application is platform agnostic, the same code can be run as a portlet or mobile app, allowing reuse over multiple devices and platforms.
 
-## Target audience
+### Target audience
 
 This article is intended for developers and architects, with an existing background knowledge of Angular and IBM Script Portlet. 
 
-## Requirements
+### Requirements
 
 - WebSphere Portal version 8.0.0.1 or higher
 - Java 1.6 or newer
