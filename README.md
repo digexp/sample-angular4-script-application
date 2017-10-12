@@ -20,7 +20,9 @@ This article is intended for developers and architects, with an existing backgro
 - [IBM Script Portlet](https://www.ibm.com/support/knowledgecenter/en/SSHRKX_8.5.0/script/script-portlet/prerequisites.html) version 1.3
 - [Command line push application for IBM Script Portlet](https://www.ibm.com/support/knowledgecenter/en/SSHRKX_8.5.0/script/script-portlet/cmd_line_push.html)
 
-## Sample application overview
+## Sample application 
+
+### Description
 
 This is an example of a simple application built with the Angular 4 framework and the Bootstrap CSS library. It can run standalone by loading index.html, and it can be imported or pushed into a Script Portlet. It's an example of a "single page application" where the different views within a single index.html page are dynamically loaded by the Angular framework. When used in a Script Portlet, a single page application like this is displayed as one portlet on a portal page, typically alongside other portlets. 
 
@@ -32,37 +34,31 @@ The application is a simple contact list application for viewing a list of conta
 * There are a few separate JavaScript files used, and when running in Script Portlet they are combined into a single resource by WebSphere Portal's resource aggregation feature (available in version 8.5, CF03 or later). See the comment at the top of index.html for how this is enabled.
 * The [Bootstrap 3](https://getbootstrap.com/docs/3.3/) library is used for styling of the application UI
 
-## Configuration
+### Configuration
 
 There are a few steps that need to be taken to configure WebSphere Portal and Script Portlet to run the Angular application. These steps only need to be done once.
 
 1. Set both `dynamic.parameter.tag.enabled` and `renderingplugin.shortform.enabled` in the `WCM WCMConfigService` service to `false` in the WebSphere® Integrated Solutions Console, as this feature can interfere with Angular code that uses square brackets. [more information](https://www.ibm.com/support/knowledgecenter/en/SSDK36_8.5.0/wcm/wcm_tags_behavior.html)
 2. The Angular router requires the `HTML` `base` tag to be present. Do this by setting the theme parameter `com.ibm.portal.theme.hasBaseURL` to `true`. [more information](https://www.ibm.com/support/knowledgecenter/en/SSYJ99_8.5.0/wcm/prevent_friendly_url_redirects.html)
 
-## Development
+### Development
 
-1. The following Angular CLI commands were used as setup:
-```
-ng new SampleAngularScriptApp
-cd SampleAngularScriptApp
-ng g component contacts/contact-list
-ng g component contacts/contact-details
-ng g component about
-ng g service contacts/contacts
-ng g pipe search-pipe
-```
+The following code changes must be implemented to ensure the application works within the IBM Script Portlet:
 
-2. The following code changes were implemented to ensure the application works within the IBM Script Portlet:
-   * Make sure any static files (eg: *src/assets/contacts.json*) are in the *src/assets/* directory, so they can be served up by Angular CLI
-   * Add the `data-scriptportlet-combine-urls="true"` parameter to the `html` tag in *src/index.html*
-   * 
+* Add the `data-scriptportlet-combine-urls="true"` parameter to the `html` tag in *src/index.html*
+* Make sure any static files (eg: *src/assets/contacts.json*) are in the *src/assets/* directory, so they can be served up by Angular CLI
 
-## Deployment
+### Build
 
-After configuration, use the [Script Portlet command line application](https://www.ibm.com/support/knowledgecenter/en/SSHRKX_8.5.0/script/script-portlet/cmd_line_push_ovr.html) to push the sample to WebSphere Portal:
+After configuration and development, build the application in a way that is compatible with IBM Script Portlet:
 
 1. Run `ng build -prod` to build, package and compress the application into the `/dist` folder
-2. From the `/dist` folder, run `sp push -wcmContentName "Angular 4 CLI Contacts Sample"`
+
+### Deployment
+
+After building the application, use the [Script Portlet command line application](https://www.ibm.com/support/knowledgecenter/en/SSHRKX_8.5.0/script/script-portlet/cmd_line_push_ovr.html) to push the sample to WebSphere Portal:
+
+1. From the `/dist` folder, run `sp push -wcmContentName "Angular 4 CLI Contacts Sample"`
 
 ## Angular CLI information
 
