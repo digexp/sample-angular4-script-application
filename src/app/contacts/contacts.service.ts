@@ -10,7 +10,7 @@ export class ContactsService {
   constructor(public http:Http) { }
 
   getContactList() {
-    return this.http.get('data/contacts.json').map((response: Response) => {
+    return this.http.get('assets/contacts.json').map((response: Response) => {
       return response.json();
     })
     .catch((error: Response) => Observable.throw(error));
