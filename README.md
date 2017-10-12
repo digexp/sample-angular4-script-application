@@ -49,16 +49,12 @@ ng g component contacts/contact-list
 ng g component contacts/contact-details
 ng g component about
 ng g service contacts/contacts
+ng g pipe search-pipe
 ```
 
 2. The following code changes were implemented to ensure the application works within the IBM Script Portlet:
    * Make sure any static files (eg: *src/assets/contacts.json*) are in the *src/assets/* directory, so they can be served up by Angular CLI
    * Add the `data-scriptportlet-combine-urls="true"` parameter to the `html` tag in *src/index.html*
-   * 
-   * 
-   * 
-   * 
-   * 
    * 
 
 ## Deployment

@@ -2,15 +2,13 @@
   <div class="form-inline">
     <div class="form-group">
         <label for="angular_search_input">Search</label>
-        <input #query type="search" class="form-control" id="angular_search_input">
+        <input [(ngModel)]="query" type="search" placeholder="Search for contacts" class="form-control" id="angular_search_input">
     </div>
   </div>
   <div>
 
-  <!--ng-repeat="contact in contacts | filter: query | orderBy:'lastName' "-->
-
-    <div class="row list-group" *ngFor="let contact of contacts">
-      <a [routerLink]="['/user', contact.email]" routerLinkActive="active" class="list-group-item">
+    <div class="row list-group" *ngFor="let contact of contacts | searchFilter: query">
+      <a [routerLink]="['/details', contact.email]" routerLinkActive="active" class="list-group-item">
         <h4 class="list-group-item-heading">{{contact.firstName}} {{contact.lastName}}</h4>
         <p class="list-group-item-text">{{contact.email}}</p>
         <p class="list-group-item-text">{{contact.phone}}</p>

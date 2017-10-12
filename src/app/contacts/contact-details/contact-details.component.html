@@ -1,5 +1,11 @@
 <div class="container-fluid">
-  <!--<table class="table">
+  <p *ngIf="loading">
+    loading...
+  </p>
+  <p *ngIf="!loading && !contactFound">
+    Contact not found
+  </p>
+  <table *ngIf="!loading && contactFound" class="table">
     <tbody>
       <tr>
         <td><strong>First Name</strong></td>
@@ -27,5 +33,4 @@
       </tr>
     </tbody>
   </table>
-  <a href="#/update/{{selected.email}}">Update</a>-->
 </div>
