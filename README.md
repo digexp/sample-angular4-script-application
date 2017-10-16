@@ -4,7 +4,7 @@
 
 This sample illustrates building an Angular CLI application and deploying it as a JSR-286 portlet. It includes all the configuration and build steps needed to get the application running smoothly in WebSphere Portal.
 
-[Angular CLI](https://cli.angular.io/) is a command line tool that allowed developers to quickly get their applications up and running. This sample showcases a simple contact list written in [Angular 4](https://angular.io/).
+[Angular CLI](https://cli.angular.io/) is a command line tool that allows developers to quickly get their applications up and running. This sample showcases a simple contact list written in [Angular 4](https://angular.io/).
 
 With the IBM Script Portlet, any JavaScript framework application can be imported as a JSR-286 portlet and hosted on WebSphere Portal. Since the sample application is platform agnostic, the same code can be run as a portlet or mobile app, allowing reuse over multiple devices and platforms.
 
@@ -14,9 +14,7 @@ This article is intended for developers and architects, with an existing backgro
 
 ### Requirements
 
-- Java 1.6 or newer
 - [node](https://nodejs.org/en/) version 6.x
-- WebSphere Portal version 8.0.0.1 or higher
 - [IBM Script Portlet](https://www.ibm.com/support/knowledgecenter/en/SSHRKX_8.5.0/script/script-portlet/prerequisites.html) version 1.3
 - [Command line push application for IBM Script Portlet](https://www.ibm.com/support/knowledgecenter/en/SSHRKX_8.5.0/script/script-portlet/cmd_line_push.html)
 
@@ -24,25 +22,25 @@ This article is intended for developers and architects, with an existing backgro
 
 ### Description
 
-This is an example of a simple application built with Angular CLI and the Bootstrap CSS library. It can run standalone with the `ng serve` command, and it can be imported into an IBM Script Portlet. It's an example of a Single Page Application (SPA), where the different views within a single index.html page are dynamically loaded by the Angular framework. When used in a Script Portlet, a SPA like this is displayed as one portlet on a portal page, possibly alongside other portlets. 
+This is an example of a simple application built with Angular CLI and the Bootstrap CSS library. It can run standalone with the `ng serve` command, and it can be imported into an IBM Script Portlet. It's an example of a Single Page Application (SPA), where the different views within a single index.html page are dynamically loaded by the Angular framework. When used in a Script Portlet, a SPA is displayed as one portlet on a portal page, possibly alongside other portlets. 
 
 Here are the key features illustrated in the sample:
 
-* The three different views (list, details, and about) are separate Angular components loaded as pages using the [Angular router](https://angular.io/guide/router), configured in app.module.ts.
-* [Angular Http](https://angular.io/api/http/Http) is used to load the default JSON data file, contacts.json.
-* There are a few separate JavaScript files used, and when running in IBM Script Portlet they are combined into a single resource by WebSphere Portal's resource aggregation feature (available in version 8.5, CF03 or later).
+* The three different views (list, details, and about) are separate Angular components loaded as pages with the [Angular router](https://angular.io/guide/router), configured in app.module.ts.
+* [Angular Http](https://angular.io/api/http/Http) is used to load the default JSON data file: *src/assets/contacts.json*.
+* There are a few separate JavaScript files in the built application, and when running in IBM Script Portlet they are combined into a single resource by WebSphere Portal's [resource aggregation](https://www.ibm.com/support/knowledgecenter/en/SSYJ99_8.5.0/dev-theme/themeopt_reso_agg.html) feature (available in version 8.5, CF03 or later).
 * The [Bootstrap 3](https://getbootstrap.com/docs/3.3/) library is used for styling of the application UI.
 
 ### Configure
 
-There are a few settings that need to be configured for WebSphere Portal to run the Angular application. These changes only need to be done once.
+There are a few settings that need to be configured for WebSphere Portal to run the Angular application. These changes only need to be done once:
 
-1. Set both `dynamic.parameter.tag.enabled` and `renderingplugin.shortform.enabled` in the `WCM WCMConfigService` service to `false` in the WebSphere® Integrated Solutions Console, as this feature can interfere with Angular code that uses square brackets. [more information](https://www.ibm.com/support/knowledgecenter/en/SSDK36_8.5.0/wcm/wcm_tags_behavior.html)
+1. Set both `dynamic.parameter.tag.enabled` and `renderingplugin.shortform.enabled` in the `WCM WCMConfigService` service to `false` in the WebSphere Integrated Solutions Console, as this feature can interfere with Angular code that uses square brackets. [more information](https://www.ibm.com/support/knowledgecenter/en/SSDK36_8.5.0/wcm/wcm_tags_behavior.html)
 2. The Angular router requires the `HTML` `base` tag to be present. Do this by setting the theme parameter `com.ibm.portal.theme.hasBaseURL` to `true`. [more information](https://www.ibm.com/support/knowledgecenter/en/SSYJ99_8.5.0/wcm/prevent_friendly_url_redirects.html)
 
 ### Develop
 
-The following code changes should be implemented to ensure the application works within the IBM Script Portlet:
+The following code should be implemented to ensure the application works within the IBM Script Portlet:
 
 * Add the `data-scriptportlet-combine-urls="true"` parameter to the `html` tag in *src/index.html* to take advantage of WebSphere Portal's resource aggregator.
 * Configure [hash location strategy](https://angular.io/guide/router#hashlocationstrategy) in the Angular router. Using the path location strategy is not compatible with WebSphere Portal URLs.
@@ -51,7 +49,7 @@ The following code changes should be implemented to ensure the application works
 
 After configuration and development, build the application for production:
 
-1. Run `ng build -prod` to build, package and compress the application into the `/dist` folder
+1. Run `ng build -prod` to package and compress the application into the `/dist` folder.
 
 ### Deploy
 
