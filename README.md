@@ -15,7 +15,7 @@ This article is intended for developers and architects, with an existing backgro
 ### Requirements
 
 - [node](https://nodejs.org/en/) version 6.x
-- [IBM Script Portlet](https://www.ibm.com/support/knowledgecenter/en/SSHRKX_8.5.0/script/script-portlet/prerequisites.html) version 1.3
+- [IBM Script Portlet](https://www.ibm.com/support/knowledgecenter/en/SSHRKX_8.5.0/script/script-portlet/prerequisites.html)
 - [Command line push application for IBM Script Portlet](https://www.ibm.com/support/knowledgecenter/en/SSHRKX_8.5.0/script/script-portlet/cmd_line_push.html)
 
 ## Sample application 
@@ -35,12 +35,12 @@ Here are the key features illustrated in the sample:
 
 There are a few settings that need to be configured for WebSphere Portal to run the Angular application. These changes only need to be done once:
 
-1. Set both `dynamic.parameter.tag.enabled` and `renderingplugin.shortform.enabled` in the `WCM WCMConfigService` service to `false` in the WebSphere Integrated Solutions Console, as this feature can interfere with Angular code that uses square brackets. [more information](https://www.ibm.com/support/knowledgecenter/en/SSDK36_8.5.0/wcm/wcm_tags_behavior.html)
-2. The Angular router requires the `HTML` `base` tag to be present. Do this by setting the theme parameter `com.ibm.portal.theme.hasBaseURL` to `true`. [more information](https://www.ibm.com/support/knowledgecenter/en/SSYJ99_8.5.0/wcm/prevent_friendly_url_redirects.html)
+1. Set both the `dynamic.parameter.tag.enabled` and the `renderingplugin.shortform.enabled` resource environment provider values of the `WCM WCMConfigService` service to `false` in the WebSphere Integrated Solutions Console, as this feature can interfere with Angular code that uses square brackets. Make sure to restart the Portal after these updates. [more information](https://www.ibm.com/support/knowledgecenter/en/SSDK36_8.5.0/wcm/wcm_tags_behavior.html)
+2. The Angular router requires the `HTML` `base` tag to be present. Do this by setting the theme parameter `com.ibm.portal.theme.hasBaseURL` to `true`. The XML script to do this can be found [here](https://www.ibm.com/support/knowledgecenter/en/SSYJ99_8.5.0/wcm/prevent_friendly_url_redirects.html).
 
 ### Develop
 
-The following code should be implemented to ensure the application works within the IBM Script Portlet:
+When creating a new Angular CLI application to run in the IBM Script Portlet, some code updates should be implemented. This sample already includes these changes:
 
 * Add the `data-scriptportlet-combine-urls="true"` parameter to the `html` tag in *src/index.html* to take advantage of WebSphere Portal's resource aggregator.
 * Configure [hash location strategy](https://angular.io/guide/router#hashlocationstrategy) in the Angular router. Using the path location strategy is not compatible with WebSphere Portal URLs.
@@ -50,6 +50,8 @@ The following code should be implemented to ensure the application works within 
 After configuration and development, build the application for production:
 
 1. Run `ng build -prod` to package and compress the application into the `/dist` folder.
+
+**Note** If the `ng` command is not found, install the package globally by following the instructions [here](https://github.com/angular/angular-cli#installation).
 
 ### Deploy
 
