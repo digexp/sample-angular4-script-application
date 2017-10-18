@@ -65,6 +65,7 @@ After configuration and development, build an application for production:
 After building the application, use the [Script Portlet command line application](https://developer.ibm.com/digexp/docs/docs/script-portlet/using-command-line-push-to-deploy-script-portlet-applications/) to push it to WebSphere Portal:
 
 1. From the `/dist` folder, run `sp push -wcmContentName "Angular 4 CLI Contacts Sample"`
+2. [Add the Script Application](https://www.ibm.com/support/knowledgecenter/en/SSYJ99_8.5.0/script-portlet/drop_app_toolbar.html) to a page.
 
 ## Angular CLI information
 
