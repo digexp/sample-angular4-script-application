@@ -43,7 +43,7 @@ To set up this sample:
 There are a few settings that need to be configured for WebSphere Portal to run any Angular application. These changes only need to be done once:
 
 * Set (or create) both the `dynamic.parameter.tag.enabled` and the `renderingplugin.shortform.enabled` [resource environment provider](https://www.ibm.com/support/knowledgecenter/en/SSHRKX_8.5.0/mp/admin-system/adsetcfg.html) values of the `WCM WCMConfigService` service to `false` in the WebSphere Integrated Solutions Console, as this feature can interfere with Angular code that uses square brackets. Make sure to restart the `WebSphere_Portal` server after these updates. Click [here](https://www.ibm.com/support/knowledgecenter/en/SSDK36_8.5.0/wcm/wcm_tags_behavior.html) for more information on these settings.
-* The Angular router requires the `HTML` `base` tag to be present. Do this by setting the theme parameter `com.ibm.portal.theme.hasBaseURL` to `true`. The XML script to do this can be found [here](https://www.ibm.com/support/knowledgecenter/en/SSYJ99_8.5.0/wcm/prevent_friendly_url_redirects.html).
+* The Angular router requires the `HTML` `base` tag to be present on the page. Do this by setting the theme parameter `com.ibm.portal.theme.hasBaseURL` to `true`. The XML script to do this can be found [here](https://www.ibm.com/support/knowledgecenter/en/SSYJ99_8.5.0/wcm/prevent_friendly_url_redirects.html), and can be imported using the [Administration portlet](https://www.ibm.com/support/knowledgecenter/en/SSYJ99_8.5.0/admin-system/adxmltsk_portlets_imp.html).
 
 ### Develop
 
