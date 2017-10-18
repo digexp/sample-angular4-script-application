@@ -15,8 +15,8 @@ This article is intended for developers and architects, with an existing backgro
 ### Requirements
 
 - [node](https://nodejs.org/en/) version 6.x
-- [IBM Script Portlet](https://www.ibm.com/support/knowledgecenter/en/SSHRKX_8.5.0/script/script-portlet/prerequisites.html)
-- [Command line push application for IBM Script Portlet](https://www.ibm.com/support/knowledgecenter/en/SSHRKX_8.5.0/script/script-portlet/cmd_line_push.html)
+- [IBM Script Portlet](https://www.ibm.com/support/knowledgecenter/en/SSHRKX_8.5.0/script/script-portlet/installing_the_ibm_script_portlet.html)
+- [Command line push application for IBM Script Portlet](https://www.ibm.com/support/knowledgecenter/SSHRKX_8.5.0/script/script-portlet/cmd_line_push_ovr.html)
 
 ## Sample application 
 
@@ -62,7 +62,7 @@ After configuration and development, build an application for production:
 
 ### Deploy
 
-After building the application, use the [Script Portlet command line application](https://www.ibm.com/support/knowledgecenter/en/SSHRKX_8.5.0/script/script-portlet/cmd_line_push_ovr.html) to push it to WebSphere Portal:
+After building the application, use the [Script Portlet command line application](https://developer.ibm.com/digexp/docs/docs/script-portlet/using-command-line-push-to-deploy-script-portlet-applications/) to push it to WebSphere Portal:
 
 1. From the `/dist` folder, run `sp push -wcmContentName "Angular 4 CLI Contacts Sample"`
 
