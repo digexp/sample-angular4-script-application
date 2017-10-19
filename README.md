@@ -2,33 +2,33 @@
 
 ## Overview
 
-This sample illustrates building an Angular CLI application and deploying it as a JSR-286 portlet. It includes all the configuration and build steps needed to get the application running smoothly in WebSphere Portal.
+This sample illustrates building an Angular CLI application and deploying it as a JSR-286 script application portlet. It includes all the configuration and build steps needed to get the application running smoothly in WebSphere Portal.
 
 [Angular CLI](https://cli.angular.io/) is a command line tool that allows developers to quickly get their applications up and running. This sample showcases a simple contact list written in [Angular 4](https://angular.io/).
 
-With the IBM Script Portlet, any JavaScript framework application can be imported as a JSR-286 portlet and hosted on WebSphere Portal. Since the sample application is platform agnostic, the same code can be run as a portlet or mobile app, allowing reuse over multiple devices and platforms.
+With the IBM Script Application, any JavaScript framework application can be imported as a JSR-286 portlet and hosted on WebSphere Portal. Since the sample application is platform agnostic, the same code can be run as a portlet or mobile app, allowing reuse over multiple devices and platforms.
 
 ### Target audience
 
-This article is intended for developers and architects, with an existing background knowledge of Angular and IBM Script Portlet. 
+This article is intended for developers and architects, with an existing background knowledge of Angular and IBM Script Application. 
 
 ### Requirements
 
 - [node](https://nodejs.org/en/) version 6.x
-- [IBM Script Portlet](https://www.ibm.com/support/knowledgecenter/en/SSHRKX_8.5.0/script/script-portlet/installing_the_ibm_script_portlet.html)
-- [Command line push application for IBM Script Portlet](https://www.ibm.com/support/knowledgecenter/SSHRKX_8.5.0/script/script-portlet/cmd_line_push_ovr.html)
+- [IBM Script Application](https://www.ibm.com/support/knowledgecenter/en/SSYJ99_8.5.0/script-portlet/ibm_script_portlet.html)
+- [Command line push application for IBM Script Application](https://www.ibm.com/support/knowledgecenter/en/SSYJ99_8.5.0/script-portlet/cmd_line_push_ovr.html)
 
 ## Sample application 
 
 ### Description
 
-This is an example of a simple application built with Angular CLI and the Bootstrap CSS library. It can run standalone with the `ng serve` command, and it can be imported into an IBM Script Portlet. It's an example of a Single Page Application (SPA), where the different views within a single index.html page are dynamically loaded by the Angular framework. When used in a Script Portlet, a SPA is displayed as one portlet on a portal page, possibly alongside other portlets. 
+This is an example of a simple application built with Angular CLI and the Bootstrap CSS library. It can run standalone with the `ng serve` command, and it can be imported into an IBM Script Application. It's an example of a Single Page Application (SPA), where the different views within a single index.html page are dynamically loaded by the Angular framework. When used in a Script Application, a SPA is displayed as one portlet on a portal page, possibly alongside other portlets. 
 
 Here are the key features illustrated in the sample:
 
 * The three different views (list, details, and about) are separate Angular components loaded as pages with the [Angular router](https://angular.io/guide/router), configured in app.module.ts.
 * [Angular Http](https://angular.io/api/http/Http) is used to load the default JSON data file: *src/assets/contacts.json*.
-* There are a few separate JavaScript files in the built application, and when running in IBM Script Portlet they are combined into a single resource by WebSphere Portal's [resource aggregation](https://www.ibm.com/support/knowledgecenter/en/SSYJ99_8.5.0/dev-theme/themeopt_reso_agg.html) feature (available in version 8.5, CF03 or later).
+* There are a few separate JavaScript files in the built application, and when running in IBM Script Application they are combined into a single resource by WebSphere Portal's [resource aggregation](https://www.ibm.com/support/knowledgecenter/en/SSYJ99_8.5.0/dev-theme/themeopt_reso_agg.html) feature (available in version 8.5, CF03 or later).
 * The [Bootstrap 3](https://getbootstrap.com/docs/3.3/) library is used for styling of the application UI.
 
 ### Install
@@ -47,7 +47,7 @@ There are a few settings that need to be configured for WebSphere Portal to run 
 
 ### Develop
 
-When creating a new Angular CLI application to run in the IBM Script Portlet, some code updates should be implemented. This sample already includes these changes:
+When creating a new Angular CLI application to run in the IBM Script Application, some code updates should be implemented. This sample already includes these changes:
 
 * Add the `data-scriptportlet-combine-urls="true"` parameter to the `html` tag in *src/index.html* to take advantage of WebSphere Portal's resource aggregator.
 * Configure [hash location strategy](https://angular.io/guide/router#hashlocationstrategy) in the Angular router. Using the path location strategy is not compatible with WebSphere Portal URLs.
@@ -62,7 +62,7 @@ After configuration and development, build an application for production:
 
 ### Deploy
 
-After building the application, use the [Script Portlet command line application](https://developer.ibm.com/digexp/docs/docs/script-portlet/using-command-line-push-to-deploy-script-portlet-applications/) to push it to WebSphere Portal:
+After building the application, use the [Script Application command line application](https://developer.ibm.com/digexp/docs/docs/script-portlet/using-command-line-push-to-deploy-script-portlet-applications/) to push it to WebSphere Portal:
 
 1. From the `/dist` folder, run `sp push -wcmContentName "Angular 4 CLI Contacts Sample"`
 2. [Add the Script Application](https://www.ibm.com/support/knowledgecenter/en/SSYJ99_8.5.0/script-portlet/drop_app_toolbar.html) to a page.
