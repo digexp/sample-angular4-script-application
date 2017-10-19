@@ -67,6 +67,8 @@ After building the application, use the [Script Application command line applica
 1. From the `/dist` folder, run `sp push -wcmContentName "Angular 4 CLI Contacts Sample"`
 2. [Add the Script Application](https://www.ibm.com/support/knowledgecenter/en/SSYJ99_8.5.0/script-portlet/drop_app_toolbar.html) to a page.
 
+Alternatively to sp push one can also zip the contents of the dist folder into a zip file and use the import functionality of the script application to import.
+
 ## Angular CLI information
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.5.
