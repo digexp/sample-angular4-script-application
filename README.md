@@ -17,6 +17,7 @@ This article is intended for developers and architects, with an existing backgro
 - [node](https://nodejs.org/en/) version 6.x
 - [IBM Script Application](https://www.ibm.com/support/knowledgecenter/en/SSYJ99_8.5.0/script-portlet/ibm_script_portlet.html)
 - [Command line push application for IBM Script Application](https://www.ibm.com/support/knowledgecenter/en/SSYJ99_8.5.0/script-portlet/cmd_line_push_ovr.html)
+- If [Angular CLI](https://cli.angular.io/) is already installed globally, ensure it is at least version 1.4.5
 
 ## Sample application 
 
